@@ -200,3 +200,24 @@ Retrieve( Position P )
 {
     return P->Element;
 }
+
+Position
+SortedTraversal( AvlTree T )
+{
+	if( T == NULL)
+	{
+		return NULL;
+	}
+	else
+	{
+		SortedTraversal( T -> Left );
+		printf(
+			"Id: %d\t Name: %s\t City: %s\t Service: %s \n", 
+			RetrieveID( T->Data ), 
+			RetrieveName( T->Data ), 
+			RetrieveCity( T->Data ), 
+			RetrieveService( T->Data ) 
+		);
+		SortedTraversal( T -> Right );
+	}
+}

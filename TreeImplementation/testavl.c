@@ -9,13 +9,14 @@ int main( void )
 	Record* Record_Arr;
     AvlTree T;
     FILE* fp;
-    double run_time;
+    
+    double runtime_insrt, runtime_sort;
     int i, num_records;
     int MemoryUsage = 0;
    
 	T = MakeEmpty( NULL );
 
-	fp = fopen( "data_10.txt", "r" );
+	fp = fopen( "data_10000.txt", "r" );
 	
 		fscanf( fp, "%s", ignore );
 		
@@ -37,10 +38,19 @@ int main( void )
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
-	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
+	runtime_insrt = ( (double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf( "Time for Tree Insertion = %f sec\n", run_time );
+	
+	QueryPerformanceCounter(&start_time);
+		SortedTraversal( T );
+	QueryPerformanceCounter(&end_time);
+	
+	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
+	runtime_sort = ( (double) elapsed_time.QuadPart ) / frequency.QuadPart;
+	
 	printf( "Memory Consumed for Tree Insertion = %d bytes\n", MemoryUsage );
+	printf( "Time for Tree Insertion = %f sec\n", runtime_insrt );
+	printf( "Time for Tree Sorted Traversal = %f sec\n", runtime_sort );
 	
     return 0;
 }

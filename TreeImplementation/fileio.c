@@ -60,3 +60,18 @@ int RetrieveID ( Record R )
 {
 	return R->id;
 }
+
+char* RetrieveName ( Record R )
+{
+	return R->name;
+}
+
+char* RetrieveCity ( Record R )
+{
+	return R->city;
+}
+
+char* RetrieveService ( Record R )
+{
+	return R->service;
+}
