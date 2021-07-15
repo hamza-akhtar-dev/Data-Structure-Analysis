@@ -143,14 +143,14 @@ DoubleRotateWithRight( Position K1 )
 }
 
 AvlTree
-Insert( ElementType X, Record R, AvlTree T)
+Insert( ElementType X, Record R, AvlTree T, int* MemoryUsage)
 {
     if( T == NULL )
     {
         /* Create and return a one-node tree */
         T = malloc( sizeof( struct AvlNode ) );
         
-        //memory += sizeof( struct AvlNode );
+        *MemoryUsage += sizeof( struct AvlNode );
         
         if( T == NULL )
             FatalError( "Out of space!!!" );
@@ -165,7 +165,7 @@ Insert( ElementType X, Record R, AvlTree T)
     else
     if( X < T->Element )
     {
-        T->Left = Insert( X, R, T->Left );
+        T->Left = Insert( X, R, T->Left, MemoryUsage );
         if( Height( T->Left ) - Height( T->Right ) == 2 )
             if( X < T->Left->Element )
                 T = SingleRotateWithLeft( T );
@@ -175,7 +175,7 @@ Insert( ElementType X, Record R, AvlTree T)
     else
     if( X > T->Element )
     {
-        T->Right = Insert( X, R, T->Right );
+        T->Right = Insert( X, R, T->Right, MemoryUsage );
         if( Height( T->Right ) - Height( T->Left ) == 2 )
             if( X > T->Right->Element )
                 T = SingleRotateWithRight( T );

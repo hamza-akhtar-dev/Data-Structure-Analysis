@@ -11,10 +11,11 @@ int main( void )
     FILE* fp;
     double run_time;
     int i, num_records;
+    int MemoryUsage = 0;
    
 	T = MakeEmpty( NULL );
 
-	fp = fopen( "data_1000.txt", "r" );
+	fp = fopen( "data_10.txt", "r" );
 	
 		fscanf( fp, "%s", ignore );
 		
@@ -31,14 +32,15 @@ int main( void )
 	QueryPerformanceCounter(&start_time);
 	    for (i = 0; i < num_records; i++)
 		{
-	        T = Insert( RetrieveID( Record_Arr[i] ), Record_Arr[i], T);
+	        T = Insert( RetrieveID( Record_Arr[i] ), Record_Arr[i], T , &MemoryUsage );
 		}
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Time for Tree Insertion = %f s\n", run_time);
+	printf( "Time for Tree Insertion = %f sec\n", run_time );
+	printf( "Memory Consumed for Tree Insertion = %d bytes\n", MemoryUsage );
 	
     return 0;
 }
