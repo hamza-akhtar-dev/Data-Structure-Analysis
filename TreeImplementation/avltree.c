@@ -189,9 +189,38 @@ Insert( ElementType X, Record R, AvlTree T, int* MemoryUsage)
 }
 
 AvlTree
-Delete( ElementType X, AvlTree T )
+Delete( ElementType X, AvlTree T, int* MemoryUsage )
 {
-    printf( "Sorry; Delete is unimplemented; %d remains\n", X );
+    Position TmpCell;
+
+    if( T == NULL )
+        Error( "Element not found" );
+    else
+    if( X < T->Element )  /* Go left */
+        T->Left = Delete( X, T->Left, MemoryUsage );
+    else
+    if( X > T->Element )  /* Go right */
+        T->Right = Delete( X, T->Right, MemoryUsage );
+    else  /* Found element to be deleted */
+    if( T->Left && T->Right )  /* Two children */
+    {
+        /* Replace with smallest in right subtree */
+        TmpCell = FindMin( T->Right );
+        T->Element = TmpCell->Element;
+        T->Right = Delete( T->Element, T->Right, MemoryUsage );
+    }
+    else  /* One or zero children */
+    {
+        TmpCell = T;
+        if( T->Left == NULL ) /* Also handles 0 children */
+            T = T->Right;
+        else if( T->Right == NULL )
+            T = T->Left;
+        free( TmpCell );
+        *MemoryUsage -= sizeof( struct AvlNode );
+    }
+	
+	
     return T;
 }
 
@@ -212,11 +241,11 @@ SortedTraversal( AvlTree T )
 	{
 		SortedTraversal( T -> Left );
 		printf(
-			"Id: %d\t Name: %s\t City: %s\t Service: %s \n", 
-			RetrieveID( T->Data ), 
-			RetrieveName( T->Data ), 
-			RetrieveCity( T->Data ), 
-			RetrieveService( T->Data ) 
+			"Id: %d\t Name: %s\t City: %s\t Service: %s \n",  //Comment print statment for larger data files
+			RetrieveID( T -> Data ), 
+			RetrieveName( T -> Data ), 
+			RetrieveCity( T -> Data ), 
+			RetrieveService( T -> Data ) 
 		);
 		SortedTraversal( T -> Right );
 	}
