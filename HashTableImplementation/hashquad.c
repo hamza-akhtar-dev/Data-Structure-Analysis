@@ -5,7 +5,7 @@
 
 #define MinTableSize (10)
 
-enum KindOfEntry { Legitimate, Empty, Deleted };
+enum KindOfEntry { Legitimate, Empty, Deleted, Found };
 
 struct HashEntry
 {
@@ -244,13 +244,36 @@ SortedTraversal( HashTable H )
 	{
 		Position P = Find( Array[i], H);
 		Record R = H->TheCells[P].Data;
-		//printf("ID = %d \t Name = %s \t City = %s \t Sevice = %s\n", 
-		//Retrieve(P,H), RetrieveName(R), RetrieveCity(R),RetrieveService(R) );		
+		printf("ID = %d \t Name = %s \t City = %s \t Sevice = %s\n", 
+		Retrieve(P,H), RetrieveName(R), RetrieveCity(R),RetrieveService(R) );		
 	}
 }		
 		
 void
 SortedTraversal101( HashTable H )	
 {
-	
+	int i, j;
+	int Min, Index;
+	for ( i = 0; i < H->TableSize; i++ )
+	{
+		if ( H->TheCells[ i ].Info == Legitimate &&
+			 H->TheCells[ i ].Info != Found ) 
+		{
+			Min = H->TheCells[ i ].Element;
+			for ( j = 0; j < H->TableSize; j++ )
+			{
+				if ( H->TheCells[ j ].Info == Legitimate &&
+			 		 H->TheCells[ j ].Info != Found ) 
+				{
+					if ( H->TheCells[ j ].Element < Min )
+					{
+						Min = H->TheCells[ j ].Element;
+						Index = j;
+					}	
+				}
+			}
+			printf("%d\n",Min);
+			H->TheCells[ Index ].Info = Found;
+		}
+	}
 }	
