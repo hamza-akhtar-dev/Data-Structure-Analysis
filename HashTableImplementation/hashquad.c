@@ -254,26 +254,26 @@ SortedTraversal101( HashTable H )
 {
 	int i, j;
 	int Min, Index;
+	
 	for ( i = 0; i < H->TableSize; i++ )
 	{
-		if ( H->TheCells[ i ].Info == Legitimate &&
-			 H->TheCells[ i ].Info != Found ) 
+		if (H->TheCells[i].Info == Empty)
 		{
-			Min = H->TheCells[ i ].Element;
-			for ( j = 0; j < H->TableSize; j++ )
-			{
-				if ( H->TheCells[ j ].Info == Legitimate &&
-			 		 H->TheCells[ j ].Info != Found ) 
-				{
-					if ( H->TheCells[ j ].Element < Min )
-					{
-						Min = H->TheCells[ j ].Element;
-						Index = j;
-					}	
-				}
-			}
-			printf("%d\n",Min);
-			H->TheCells[ Index ].Info = Found;
+			continue;
 		}
+		
+		Min = 10000000; //An "Arbitrary Large Number" for which we are sure that ID will be less than this.
+		
+		for ( j = 0; j < H->TableSize; j++ )
+		{
+			if ( H->TheCells[j].Element < Min && H->TheCells[j].Info != Found && H->TheCells[j].Info != Empty)
+			{
+				Min = H->TheCells[j].Element;
+				
+				Index = j;
+			}
+		}
+		H->TheCells[Index].Info = Found;
+		printf("%d\n", Min);
 	}
 }	
