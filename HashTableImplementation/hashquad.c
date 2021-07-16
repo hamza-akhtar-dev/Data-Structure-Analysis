@@ -244,8 +244,8 @@ SortedTraversal( HashTable H )
 	{
 		Position P = Find( Array[i], H);
 		Record R = H->TheCells[P].Data;
-		printf("ID = %d \t Name = %s \t City = %s \t Sevice = %s\n", 
-		Retrieve(P,H), RetrieveName(R), RetrieveCity(R),RetrieveService(R) );		
+		//printf("ID = %d \t Name = %s \t City = %s \t Sevice = %s\n", 
+		//Retrieve(P,H), RetrieveName(R), RetrieveCity(R),RetrieveService(R) );		
 	}
 }		
 		
@@ -257,7 +257,7 @@ SortedTraversal101( HashTable H )
 	
 	for ( i = 0; i < H->TableSize; i++ )
 	{
-		if (H->TheCells[i].Info == Empty)
+		if ( H->TheCells[i].Info == Empty || H->TheCells[i].Info == Deleted )
 		{
 			continue;
 		}
@@ -266,7 +266,7 @@ SortedTraversal101( HashTable H )
 		
 		for ( j = 0; j < H->TableSize; j++ )
 		{
-			if ( H->TheCells[j].Element < Min && H->TheCells[j].Info != Found && H->TheCells[j].Info != Empty)
+			if ( H->TheCells[j].Element < Min && H->TheCells[j].Info == Legitimate )
 			{
 				Min = H->TheCells[j].Element;
 				
@@ -274,6 +274,8 @@ SortedTraversal101( HashTable H )
 			}
 		}
 		H->TheCells[Index].Info = Found;
-		printf("%d\n", Min);
+		Record R = H->TheCells[Index].Data;
+		//printf("ID = %d \t Name = %s \t City = %s \t Sevice = %s\n", 
+		//RetrieveID(R), RetrieveName(R), RetrieveCity(R),RetrieveService(R) );
 	}
 }	

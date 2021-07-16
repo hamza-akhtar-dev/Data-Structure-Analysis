@@ -8,11 +8,12 @@ int main( void )
 	char ignore[MAXNAMELENGTH];
 	Record* Record_Arr;
     HashTable H;
+    Position P;
     FILE* fp;
     double run_time;
     int i, num_records;   
 
-	fp = fopen( "data_10.txt", "r" );
+	fp = fopen( "data_10000.txt", "r" );
 	
 		fscanf( fp, "%s", ignore );
 		
@@ -38,20 +39,28 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Insert \t\t Execution Time: \t %f s\n", run_time);
+	printf("Insert \t\t     Execution Time: \t %f s\n", run_time);
 	//PrintHashTable(H);
-	
 	QueryPerformanceCounter(&start_time);
 	    for (i = 0; i < num_records; i+=2)
 		{
-	        Find(RetrieveID( Record_Arr[i] ), H);
+	        P = Find(RetrieveID( Record_Arr[i] ), H);
 		}
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Find \t\t Execution Time: \t %f s\n", run_time);
+	printf("Find \t\t     Execution Time: \t %f s\n", run_time);
+	
+	QueryPerformanceCounter(&start_time);
+	    SortedTraversal( H );
+	QueryPerformanceCounter(&end_time);
+	
+	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
+	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
+	
+	printf("Sorted Traversal     Execution Time: \t %f s\n", run_time);
 	
 	QueryPerformanceCounter(&start_time);
 	    SortedTraversal101( H );
@@ -60,7 +69,7 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Sorted Traversal Execution Time: \t %f s\n", run_time);
+	printf("Sorted Traversal 101 Execution Time: \t %f s\n", run_time);
 	
 	QueryPerformanceCounter(&start_time);
 	    for (i = 1; i < num_records; i+=2)
@@ -72,10 +81,8 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Delete \t\t Execution Time: \t %f s\n", run_time);
+	printf("Delete \t\t     Execution Time: \t %f s\n", run_time);
 	//PrintHashTable(H);
-
 	DestroyTable(H);
-	
     return 0;
 }
