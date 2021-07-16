@@ -12,7 +12,7 @@ int main( void )
     double run_time;
     int i, num_records;   
 
-	fp = fopen( "data_100000.txt", "r" );
+	fp = fopen( "data_10.txt", "r" );
 	
 		fscanf( fp, "%s", ignore );
 		
@@ -40,6 +40,7 @@ int main( void )
 	
 	printf("Insert \t\t Execution Time: \t %f s\n", run_time);
 	//PrintHashTable(H);
+	
 	QueryPerformanceCounter(&start_time);
 	    for (i = 0; i < num_records; i+=2)
 		{
@@ -53,7 +54,7 @@ int main( void )
 	printf("Find \t\t Execution Time: \t %f s\n", run_time);
 	
 	QueryPerformanceCounter(&start_time);
-	    SortedTraversal( H );
+	    SortedTraversal101( H );
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
@@ -73,6 +74,8 @@ int main( void )
 	
 	printf("Delete \t\t Execution Time: \t %f s\n", run_time);
 	//PrintHashTable(H);
+
 	DestroyTable(H);
+	
     return 0;
 }
