@@ -121,7 +121,19 @@ Retrieve( Position P, HashTable H )
 void
 DestroyTable( HashTable H )
 {
-    free( H->TheCells );
+    int i;
+	for ( i = 0; i < H->TableSize; i++)
+	{
+		if (H->TheCells[i].Info != Empty)
+		{
+			Record R = H->TheCells[i].Data;
+			free( RetrieveName( R ) );
+			free( RetrieveCity( R ) );
+			free( RetrieveService( R ) );
+			free(R);
+		}
+	}
+	free( H->TheCells );
     free( H );
 }
 
@@ -179,7 +191,7 @@ Swap( ElementType *Lhs, ElementType *Rhs )
     *Lhs = *Rhs;
     *Rhs = Tmp;
 }
-        
+       
 void
 Qsort( ElementType A[ ], int Left, int Right )
 {
