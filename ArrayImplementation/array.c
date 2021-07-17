@@ -95,7 +95,7 @@ PrintData( Array A)
 		{
 			Record R = A->TheCells[i].Data;
 			printf("ID = %d \t Name = %s \t City = %s \t Sevice = %s\n", 
-			RetrieveID(R), RetrieveName(R), RetrieveCity(R),RetrieveService(R) );
+			RetrieveID(R), RetrieveName(R), RetrieveCity(R), RetrieveService(R) );
 		}
 		else if ( A->TheCells[ i ].Info == Empty )
 			printf("Empty\n");
@@ -146,6 +146,51 @@ DestroyArray( Array A )
 	}
 	free(A->TheCells);
 	free(A);
-}		
+}
+		
+void
+Swap( Cell *Lhs, Cell *Rhs )
+{
+    Cell Tmp = *Lhs;
+    *Lhs = *Rhs;
+    *Rhs = Tmp;
+}
 
-	
+void
+Qsort( Array A, int Left, int Right )
+{
+    if( Left < Right )
+    {
+        int i, j;
+        ElementType Pivot;
+
+        i = Left; j = Right - 1;
+        
+		Pivot = A->TheCells[ Right ].Element;
+        
+        while (1)
+        {
+            while( A->TheCells[ i ].Element < Pivot ) {++i;}
+            while( A->TheCells[ j ].Element >= Pivot ) {--j;}    
+
+            if( i < j )
+            {
+                Swap( &A->TheCells[ i ], &A->TheCells[ j ] );
+            }
+            else
+                break;
+        }
+
+        Swap( &A->TheCells[ Right ], &A->TheCells[ i ] );      // Put pivot at appropriate place
+
+        Qsort( A, Left, j );
+        Qsort( A, j + 2, Right );
+	}	
+}
+
+void
+SortedTraversal( Array A )
+{
+	Qsort( A, 0, (A->ArraySize - 1) );
+	//PrintData(A);
+}	

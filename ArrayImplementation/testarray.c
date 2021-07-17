@@ -13,7 +13,7 @@ int main( void )
     double run_time;
     int i, num_records;   
 
-	fp = fopen( "data_1000.txt", "r" );
+	fp = fopen( "data_100.txt", "r" );
 	
 		fscanf( fp, "%s", ignore );
 		
@@ -54,7 +54,7 @@ int main( void )
 	printf("Find \t\t     Execution Time: \t %f s\n", run_time);
 	
 	QueryPerformanceCounter(&start_time);
-	    //SortedTraversal( A );
+	    SortedTraversal( A );
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
