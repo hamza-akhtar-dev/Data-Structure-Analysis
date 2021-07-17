@@ -11,23 +11,26 @@ int main( void )
     Position P;
     FILE* fp;
     double run_time;
-    int i, num_records;   
+    int i, num_records;
+	int MemoryUsage = 0; 
+	
+	/*<-----------FILE INPUT----------->*/  
 
-	fp = fopen( "data_100.txt", "r" );
-	
+	fp = fopen( "data_10.txt", "r" );
 		fscanf( fp, "%s", ignore );
-		
 		fscanf( fp, "%d", &num_records );
-		
 		printf( "Number of Records: %d\n", num_records );
-		
 		Record_Arr = ReadRecords( fp, num_records );
-	
 	fclose(fp);
 	
-	A = CreateArray( num_records );
+	/*<----------OPERATIONS------------>*/
+	
+	A = CreateArray( num_records, &MemoryUsage );
 
 	QueryPerformanceFrequency(&frequency);
+	
+	
+	//=======INSERTION=======//
 	
 	QueryPerformanceCounter(&start_time);
 	    for (i = 0; i < num_records; i++)
@@ -39,8 +42,12 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Insert \t\t     Execution Time: \t %f s\n", run_time);
-	//PrintData( A );
+	printf("Insert \t\t     Execution Time: %f s ; Memory Usage: %d bytes\n", run_time, MemoryUsage);
+    //PrintData( A );
+
+	
+	//========FIND========//
+	
 	QueryPerformanceCounter(&start_time);
 	    for (i = 0; i < num_records; i+=2)
 		{
@@ -51,7 +58,9 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Find \t\t     Execution Time: \t %f s\n", run_time);
+	printf("Find \t\t     Execution Time: %f s ; Memory Usage: %d bytes\n", run_time, MemoryUsage);
+	
+	//========SORTED TRAVERSAL========//
 	
 	QueryPerformanceCounter(&start_time);
 	    SortedTraversal( A );
@@ -60,7 +69,9 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Sorted Traversal     Execution Time: \t %f s\n", run_time);
+	printf("Sorted Traversal     Execution Time: %f s ; Memory Usage: %d bytes\n", run_time, MemoryUsage);
+	
+	//========DELETE========//
 	
 	QueryPerformanceCounter(&start_time);
 	    for (i = 1; i < num_records; i+=2)
@@ -72,8 +83,11 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Delete \t\t     Execution Time: \t %f s\n", run_time);
+	printf("Delete \t\t     Execution Time: %f s ; Memory Usage: %d bytes\n", run_time, MemoryUsage);
+	
 	//PrintData( A );
-	DestroyArray(A);
+	DestroyArray( A, &MemoryUsage );
+	
+	//printf("After Destroying \t\t     Memory Usage: \t %d bytes\n\n", MemoryUsage);
     return 0;
 }

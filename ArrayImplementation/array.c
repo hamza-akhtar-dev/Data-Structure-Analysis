@@ -8,7 +8,7 @@
 enum KindOfEntry{ Legitimate, Empty, Deleted };
 
 
-struct ArrayEntry      // name Cell is given to it
+struct ArrayEntry      //Name Cell is given to it
 {
 	ElementType Element;
 	Record Data;
@@ -17,15 +17,15 @@ struct ArrayEntry      // name Cell is given to it
 
 typedef struct ArrayEntry Cell;
 
-struct ArrayRecord                 // pointer Array is given to it
+struct ArrayRecord                 //Pointer Array is given to it
 {
 	int ArraySize;
 	Cell *TheCells;
 };
 
-// function to allocate memory for array of required size and its cells 
+// Function to allocate memory for array of required size and its cells 
 Array
-CreateArray( int ArraySize)
+CreateArray( int ArraySize, int* MemoryUsage)
 {
 	Array A;
 	int i;
@@ -39,6 +39,7 @@ CreateArray( int ArraySize)
 	
 	// Alllocating memory for array
 	A = malloc( sizeof( struct ArrayRecord ) );
+	*MemoryUsage += sizeof( struct ArrayRecord );
 	
 	// Checking for the memory for array
 	if (A==NULL)
@@ -51,6 +52,7 @@ CreateArray( int ArraySize)
 	
 	// Allocating memory for the cells of the Array
 	A->TheCells = malloc( sizeof( Cell ) * A->ArraySize );
+	*MemoryUsage += sizeof( Cell ) * A->ArraySize;
 	
 	// Checking for memory for the Cells  
 	if( A->TheCells == NULL )
@@ -69,7 +71,7 @@ CreateArray( int ArraySize)
 
 // function to insert the data stored in record R to the array A at given index I
 void
-Insert( Array A, Record R, Index I)
+Insert( Array A, Record R, Index I )
 {	
 	if( A==NULL )
 	{
@@ -95,7 +97,7 @@ PrintData( Array A)
 		{
 			Record R = A->TheCells[i].Data;
 			printf("ID = %d \t Name = %s \t City = %s \t Sevice = %s\n", 
-			RetrieveID(R), RetrieveName(R), RetrieveCity(R), RetrieveService(R) );
+			RetrieveID(R), RetrieveName(R), RetrieveCity(R),RetrieveService(R) );
 		}
 		else if ( A->TheCells[ i ].Info == Empty )
 			printf("Empty\n");
@@ -130,14 +132,15 @@ Delete( Array A, ElementType Element )
 }	
 
 void
-DestroyArray( Array A )
+DestroyArray( Array A , int* MemoryUsage )
 {
 	int i;
+	Record R;
 	for ( i = 0; i < A->ArraySize; i++)
 	{
 		if (A->TheCells[i].Info != Empty)
 		{
-			Record R = A->TheCells[i].Data;
+			R = A->TheCells[i].Data;
 			free( RetrieveName( R ) );
 			free( RetrieveCity( R ) );
 			free( RetrieveService( R ) );
@@ -145,9 +148,11 @@ DestroyArray( Array A )
 		}
 	}
 	free(A->TheCells);
+	*MemoryUsage -= sizeof( Cell ) * A->ArraySize;
 	free(A);
-}
-		
+	*MemoryUsage -= sizeof( struct ArrayRecord );
+}		
+
 void
 Swap( Cell *Lhs, Cell *Rhs )
 {
@@ -193,4 +198,6 @@ SortedTraversal( Array A )
 {
 	Qsort( A, 0, (A->ArraySize - 1) );
 	//PrintData(A);
-}	
+}
+
+	
