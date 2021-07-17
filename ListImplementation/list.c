@@ -12,10 +12,10 @@ struct Node
 };
 
 List
-MakeEmpty( List L )
+MakeEmpty( List L, int* MemoryUsage )
 {
     if( L != NULL )
-        DeleteList( L );
+        DeleteList( L, MemoryUsage );
     L = malloc( sizeof( struct Node ) );
     if( L == NULL )
         FatalError( "Out of memory!" );
@@ -55,7 +55,7 @@ Find( ElementType X, List L )
 /* Assume use of a header node */
 
 void
-Delete( ElementType X, List L )
+Delete( ElementType X, List L, int* MemoryUsage )
 {
     Position P, TmpCell;
 
@@ -66,6 +66,7 @@ Delete( ElementType X, List L )
         TmpCell = P->Next;
         P->Next = TmpCell->Next;  /* Bypass deleted cell */
         free( TmpCell );
+        *MemoryUsage -= sizeof( struct Node );
     }
 }
 
@@ -90,11 +91,13 @@ FindPrevious( ElementType X, List L )
 /* Parameter L is unused in this implementation */
 
 void
-Insert( ElementType X, Record R, List L, Position P )
+Insert( ElementType X, Record R, Position P, int* MemoryUsage )
 {
     Position TmpCell;
 
     TmpCell = malloc( sizeof( struct Node ) );
+    *MemoryUsage += sizeof( struct Node );
+    
     if( TmpCell == NULL )
         FatalError( "Out of space!!!" );
 
@@ -106,7 +109,7 @@ Insert( ElementType X, Record R, List L, Position P )
 
 
 void
-DeleteList( List L )
+DeleteList( List L, int* MemoryUsage )
 {
     Position P, Tmp;
 
@@ -117,6 +120,7 @@ DeleteList( List L )
         Tmp = P->Next;
         free(P->Data);
         free( P );
+		*MemoryUsage -= sizeof( struct Node );
         P = Tmp;
     }
 }
