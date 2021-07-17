@@ -11,8 +11,12 @@ int main( void )
     Position P;
     FILE* fp;
     double run_time;
-    int i, num_records;   
-
+    int i, num_records; 
+	int MemoryUsage = 0;  
+	int MemoryUsage101 = 0;
+	
+	/*<-----------FILE INPUT----------->*/  
+	
 	fp = fopen( "data_10000.txt", "r" );
 	
 		fscanf( fp, "%s", ignore );
@@ -25,9 +29,13 @@ int main( void )
 	
 	fclose(fp);
 	
-	H = InitializeTable(num_records);
+	/*<----------OPERATIONS------------>*/
+	
+	H = InitializeTable(num_records, &MemoryUsage);
 
 	QueryPerformanceFrequency(&frequency);
+	
+	//=======INSERTION=======//
 	
 	QueryPerformanceCounter(&start_time);
 	    for (i = 0; i < num_records; i++)
@@ -39,8 +47,11 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Insert \t\t     Execution Time: \t %f s\n", run_time);
+	printf("Insert \t\t     Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage);
 	//PrintHashTable(H);
+	
+	//========FIND========//
+	
 	QueryPerformanceCounter(&start_time);
 	    for (i = 0; i < num_records; i+=2)
 		{
@@ -51,7 +62,21 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Find \t\t     Execution Time: \t %f s\n", run_time);
+	printf("Find \t\t     Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage);
+	
+	//========SORTED TRAVERSAL 101========//
+	
+	MemoryUsage101 += MemoryUsage;
+	QueryPerformanceCounter(&start_time);
+	    SortedTraversal101( H, &MemoryUsage101 );
+	QueryPerformanceCounter(&end_time);
+	
+	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
+	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
+	
+	printf("Sorted Traversal 101 Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage101);
+	
+	//========SORTED TRAVERSAL========//
 	
 	QueryPerformanceCounter(&start_time);
 	    SortedTraversal( H );
@@ -60,16 +85,9 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Sorted Traversal     Execution Time: \t %f s\n", run_time);
+	printf("Sorted Traversal     Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage);
 	
-	QueryPerformanceCounter(&start_time);
-	    SortedTraversal101( H );
-	QueryPerformanceCounter(&end_time);
-	
-	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
-	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
-	
-	printf("Sorted Traversal 101 Execution Time: \t %f s\n", run_time);
+	//========DELETE========//
 	
 	QueryPerformanceCounter(&start_time);
 	    for (i = 1; i < num_records; i+=2)
@@ -81,8 +99,9 @@ int main( void )
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Delete \t\t     Execution Time: \t %f s\n", run_time);
+	printf("Delete \t\t     Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage);
 	//PrintHashTable(H);
-	DestroyTable(H);
+	DestroyTable(H, &MemoryUsage);
+	//printf("After Destroying \t\t     Memory Usage: \t %d bytes\n\n", MemoryUsage);
     return 0;
 }

@@ -51,7 +51,7 @@ Hash( ElementType Key, int TableSize )
 }
 
 HashTable
-InitializeTable( int TableSize )
+InitializeTable( int TableSize, int* MemoryUsage )
 {
     HashTable H;
     int i;
@@ -64,6 +64,8 @@ InitializeTable( int TableSize )
 
     /* Allocate table */
     H = malloc( sizeof( struct HashTbl ) );
+    *MemoryUsage += sizeof( struct HashTbl );
+    
     if( H == NULL )
         FatalError( "Out of space!!!" );
 
@@ -71,6 +73,8 @@ InitializeTable( int TableSize )
 	H->Nelts = 0;
     /* Allocate array of Cells */
     H->TheCells = malloc( sizeof( Cell ) * H->TableSize );
+    *MemoryUsage += sizeof( Cell ) * H->TableSize;
+    
     if( H->TheCells == NULL )
         FatalError( "Out of space!!!" );
 
@@ -119,7 +123,7 @@ Retrieve( Position P, HashTable H )
 }
 
 void
-DestroyTable( HashTable H )
+DestroyTable( HashTable H, int* MemoryUsage )
 {
     int i;
 	for ( i = 0; i < H->TableSize; i++)
@@ -134,7 +138,9 @@ DestroyTable( HashTable H )
 		}
 	}
 	free( H->TheCells );
-    free( H );
+    *MemoryUsage -= sizeof( Cell ) * H->TableSize;
+	free(H);
+	*MemoryUsage -= sizeof( struct HashTbl );
 }
 
 /*
@@ -153,8 +159,12 @@ PrintHashTable( HashTable H )
 	{
 		printf("Index %d: ",i);
 		// printing the entry at cell
-		if ( H->TheCells[ i ].Info == Legitimate )
-			printf("%d ", Retrieve( i, H ));
+		if ( H->TheCells[ i ].Info == Legitimate || H->TheCells[ i ].Info == Found )
+			{
+				Record R = H->TheCells[i].Data;
+				printf("ID = %d \t Name = %s \t City = %s \t Sevice = %s\n", 
+				RetrieveID(R), RetrieveName(R), RetrieveCity(R),RetrieveService(R) );
+			}
 		// printing empty, as the cell is empty
 		else if ( H->TheCells[ i ].Info == Empty )
 			printf("Empty");
@@ -246,10 +256,11 @@ Copy( HashTable H, ElementType Array[] )
 }
       
 void		
-SortedTraversal( HashTable H )
+SortedTraversal101( HashTable H, int* MemoryUsage )
 {
 	int i;
 	ElementType Array[ H->Nelts ];
+	*MemoryUsage += sizeof(ElementType) * H->Nelts;
 	Copy( H, Array );
 	Quicksort( Array, H->Nelts );
 	for ( i = 0; i < H->Nelts; i++ )
@@ -257,12 +268,12 @@ SortedTraversal( HashTable H )
 		Position P = Find( Array[i], H);
 		Record R = H->TheCells[P].Data;
 		//printf("ID = %d \t Name = %s \t City = %s \t Sevice = %s\n", 
-		//Retrieve(P,H), RetrieveName(R), RetrieveCity(R),RetrieveService(R) );		
+		//RetrieveID(R), RetrieveName(R), RetrieveCity(R),RetrieveService(R) );		
 	}
 }		
 		
 void
-SortedTraversal101( HashTable H )	
+SortedTraversal( HashTable H )	
 {
 	int i, j;
 	int Min, Index;
