@@ -10,12 +10,13 @@ int main( void )
     AvlTree T;
     Position P;
     FILE* fp;
-    
-    double runtime_insrt, runtime_sort, runtime_find, runtime_delete;
+    double run_time;
     int i, num_records;
     int MemoryUsage = 0;
    
-	T = MakeEmpty( NULL );
+
+	
+	/*<-----------FILE INPUT----------->*/ 
 
 	fp = fopen( "data_100.txt", "r" );
 		fscanf( fp, "%s", ignore );
@@ -24,10 +25,16 @@ int main( void )
 		Record_Arr = ReadRecords( fp, num_records );
 	fclose(fp);
 
+	
+	
+	/*<----------OPERATIONS------------>*/
+	
+	T = MakeEmpty( NULL );
+	
 	QueryPerformanceFrequency(&frequency);
 	
+	//=======INSERTION=======//
 	
-	printf("Inserting Records ...\n");
 	QueryPerformanceCounter(&start_time);
 	    for (i = 0; i < num_records; i++)
 		{
@@ -36,44 +43,37 @@ int main( void )
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
-	runtime_insrt = ( (double) elapsed_time.QuadPart) / frequency.QuadPart;
+	run_time = ( (double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf( "Memory Consumed for Tree Insertion = %d bytes\n", MemoryUsage );
-	printf( "Time for Tree Insertion = %f sec\n\n", runtime_insrt );
+	printf("Insert \t\t     Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage);
 	
+	//========SORTED TRAVERSAL========//
 	
-	printf("Starting Sorted Traversal ...\n");
 	QueryPerformanceCounter(&start_time);
 		SortedTraversal( T );
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
-	runtime_sort = ( (double) elapsed_time.QuadPart ) / frequency.QuadPart;
+	run_time = ( (double) elapsed_time.QuadPart ) / frequency.QuadPart;
 	
-	printf( "Time for Tree Sorted Traversal = %f sec\n", runtime_sort );
-	printf( "Memory Consumed for Tree Sorted Traversal = %d bytes\n\n", MemoryUsage );
+	printf("Sorted Traversal     Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage);
 	
+	//========FIND========//
 	
-	printf("Finding Records ...\n");
 	QueryPerformanceCounter(&start_time);
 	    for (i = 0; i < num_records; i+=2 )
 		{
 	        P = Find( RetrieveID( Record_Arr[i] ), T );
-	        if( P != NULL )
-	        {
-	        	printf("Found\n");   //Comment this for larger data files
-			}
 		}
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
-	runtime_find = ( (double) elapsed_time.QuadPart ) / frequency.QuadPart;
+	run_time = ( (double) elapsed_time.QuadPart ) / frequency.QuadPart;
 	
-	printf( "Time for Tree Finding = %f sec\n", runtime_find );
-	printf( "Memory Consumed for Tree Finding = %d bytes\n\n", MemoryUsage );
+	printf("Find \t\t     Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage);
 	
-	
-	printf("Deleting Records ...\n");
+	//========DELETE========//
+
 	QueryPerformanceCounter(&start_time);
 	    for (i = 1; i < num_records; i+=2 )
 		{
@@ -82,10 +82,9 @@ int main( void )
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
-	runtime_delete = ( (double) elapsed_time.QuadPart ) / frequency.QuadPart;
+	run_time = ( (double) elapsed_time.QuadPart ) / frequency.QuadPart;
 	
-	printf( "Time for Tree Deletion = %f sec\n", runtime_delete );
-	printf( "Memory Consumed after Deletion = %d bytes\n\n", MemoryUsage );
+	printf("Delete \t\t     Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage);
 	
     return 0;
 }

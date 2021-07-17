@@ -2,6 +2,9 @@
 #include "fileio.h"
 #include "fatal.h"
 
+#define AVL    		// Define: "AVL" for balanced tree ; "SEARCH" for imbalanced tree
+
+#ifdef AVL
 struct AvlNode
 {
     ElementType Element;
@@ -10,6 +13,17 @@ struct AvlNode
     AvlTree  Right;
     int      Height;
 };
+#endif
+
+#ifdef SEARCH
+struct AvlNode
+{
+    ElementType Element;
+    Record Data;
+    AvlTree  Left;
+    AvlTree  Right;
+};
+#endif
 
 AvlTree
 MakeEmpty( AvlTree T )
@@ -58,6 +72,8 @@ FindMax( AvlTree T )
 
     return T;
 }
+
+#ifdef AVL
 
 static int
 Height( Position P )
@@ -143,7 +159,7 @@ DoubleRotateWithRight( Position K1 )
 }
 
 AvlTree
-Insert( ElementType X, Record R, AvlTree T, int* MemoryUsage)
+Insert( ElementType X, Record R, AvlTree T, int* MemoryUsage )
 {
     if( T == NULL )
     {
@@ -187,6 +203,40 @@ Insert( ElementType X, Record R, AvlTree T, int* MemoryUsage)
     T->Height = Max( Height( T->Left ), Height( T->Right ) ) + 1;
     return T;
 }
+
+#endif
+
+#ifdef SEARCH
+
+AvlTree
+Insert( ElementType X, Record R, AvlTree T, int* MemoryUsage )
+{
+	if( T == NULL )
+	{
+    	T = malloc( sizeof( struct AvlNode ) );
+    	
+    	*MemoryUsage += sizeof( struct AvlNode );
+    	
+  		if( T == NULL )
+    		FatalError( "Out of space!!!" );
+    		
+        else
+        {
+      		T->Element = X;
+     		T->Left = T->Right = NULL;
+        }
+    }
+	else
+	if( X < T->Element )
+		T->Left = Insert( X, R, T->Left, MemoryUsage );
+	else
+	if( X > T->Element )
+		T->Right = Insert( X, R, T->Right, MemoryUsage );
+		   
+	return T;
+}
+
+#endif
 
 AvlTree
 Delete( ElementType X, AvlTree T, int* MemoryUsage )
@@ -233,20 +283,16 @@ Retrieve( Position P )
 Position
 SortedTraversal( AvlTree T )
 {
+	Record R;
 	if( T == NULL)
 	{
 		return NULL;
 	}
 	else
 	{
-		SortedTraversal( T -> Left );
-		printf(
-			"Id: %d\t Name: %s\t City: %s\t Service: %s \n",  //Comment print statment for larger data files
-			RetrieveID( T -> Data ), 
-			RetrieveName( T -> Data ), 
-			RetrieveCity( T -> Data ), 
-			RetrieveService( T -> Data ) 
-		);
-		SortedTraversal( T -> Right );
+		R = T->Data;
+		SortedTraversal(T->Left);
+		//printf( "Id: %d\t Name: %s\t City: %s\t Service: %s \n", RetrieveID(R), RetrieveName(R), RetrieveCity(R), RetrieveService(R) );
+		SortedTraversal(T->Right);
 	}
 }
