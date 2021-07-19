@@ -12,8 +12,7 @@ int main( void )
     FILE* fp;
     double run_time;
     int i, num_records; 
-	int MemoryUsage = 0;  
-	int MemoryUsage101 = 0;
+	int MemoryUsage = 0;
 	
 	/*<-----------FILE INPUT----------->*/  
 	
@@ -66,15 +65,14 @@ int main( void )
 	
 	//========SORTED TRAVERSAL 101========//
 	
-	MemoryUsage101 += MemoryUsage;
 	QueryPerformanceCounter(&start_time);
-	    SortedTraversal101( H, &MemoryUsage101 );
+	    SortedTraversal101( H, &MemoryUsage );
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
-	printf("Sorted Traversal 101 Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage101);
+	printf("Sorted Traversal 101 Execution Time: \t %f s \t Memory Consuption: \t %d bytes\n", run_time, MemoryUsage);
 	
 	//========SORTED TRAVERSAL========//
 	
