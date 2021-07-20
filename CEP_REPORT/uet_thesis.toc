@@ -1,0 +1,11 @@
+\contentsline {chapter}{Acknowledgments}{iii}{dummy.4}%
+\contentsline {chapter}{List of Figures}{vi}{dummy.6}%
+\contentsline {chapter}{List of Tables}{vii}{dummy.8}%
+\contentsline {chapter}{\numberline {1}Problem Statement}{1}{chapter.10}%
+\contentsline {chapter}{\numberline {2}File Input}{2}{chapter.19}%
+\contentsline {chapter}{\numberline {3}Hash Table Implementation}{3}{chapter.20}%
+\contentsline {chapter}{\numberline {4}Array Implementation}{5}{chapter.25}%
+\contentsline {chapter}{\numberline {5}Linked List Implementation}{7}{chapter.30}%
+\contentsline {chapter}{\numberline {6}Tree Implementation}{8}{chapter.31}%
+\contentsline {chapter}{\numberline {7}Results}{10}{chapter.36}%
+\contentsline {chapter}{References}{11}{dummy.38}%
