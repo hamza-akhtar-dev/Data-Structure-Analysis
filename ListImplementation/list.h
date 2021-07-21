@@ -21,7 +21,7 @@ Position Header( List L );
 Position First( List L );
 Position Advance( Position P );
 ElementType Retrieve( Position P );
-
+void SortedTraversal ( List L );
 
 
 #endif

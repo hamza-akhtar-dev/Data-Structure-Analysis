@@ -17,7 +17,7 @@ int main( void )
 	
 	/*<-----------FILE INPUT----------->*/  
 
-	fp = fopen( "data_1000.txt", "r" );
+	fp = fopen( "data_10000.txt", "r" );
 		fscanf( fp, "%s", ignore );
 		fscanf( fp, "%d", &num_records );
 		printf( "Number of Records: %d\n", num_records );
@@ -61,16 +61,18 @@ int main( void )
 	
 	printf("Find \t\t     Execution Time: %f s \t Memory Usage: %d bytes\n", run_time, MemoryUsage);
 	
+	
 	//========SORTED TRAVERSAL========//
 	
 	QueryPerformanceCounter(&start_time);
-		//SortedTraversal( L );
+		SortedTraversal( L );
 	QueryPerformanceCounter(&end_time);
 	
 	elapsed_time.QuadPart = end_time.QuadPart - start_time.QuadPart;
 	run_time = ((double) elapsed_time.QuadPart) / frequency.QuadPart;
 	
 	printf("Sorted Traversal     Execution Time: %f s \t Memory Usage: %d bytes\n", run_time, MemoryUsage);
+	
 	
 	//========DELETE========//
 	
