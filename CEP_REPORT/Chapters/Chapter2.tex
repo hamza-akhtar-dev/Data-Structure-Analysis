@@ -3,6 +3,7 @@
 \chapter{File Input} % Write in your own chapter title
 \label{Chapter2}
 \lhead{Chapter 2. \emph{File Input}}
+\section{Methodology}
 The workflow for file input routines is follows:
 \begin{itemize}
 	\item File is opened in reading mode with \textbf{fopen()}
@@ -10,7 +11,7 @@ The workflow for file input routines is follows:
 	\item Creating a structure which has fields of "ID"(Integer), "Name"(String), "City"(String) and "Service"(String).
 	\item Allocating memory for an array of "pointers to structures".
 	\item Records are read from the file and are stored in the allocated structures and then pointers to these structures are linked to the array.
-	\item File is closed after storing the data with \textbf{fclose}
+	\item File is closed after storing the data with \textbf{fclose()}
 \end{itemize}
 
 So after these processes we have \textit{an array of pointers to structures} containing the data of the files.
