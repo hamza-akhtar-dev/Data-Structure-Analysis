@@ -2,4 +2,15 @@
 
 \chapter{File Input} % Write in your own chapter title
 \label{Chapter2}
-\lhead{Chapter 2. \emph{File Input}} 
+\lhead{Chapter 2. \emph{File Input}}
+The workflow for file input routines is follows:
+\begin{itemize}
+	\item File is opened in reading mode with \textbf{fopen()}
+	\item Reading the data file using \textbf{fscanf()} from the first line. Ignore the first string read as it is needed. Next line contains the number of records read and it store as an integer. From the next line we have the data of employees.
+	\item Creating a structure which has fields of "ID"(Integer), "Name"(String), "City"(String) and "Service"(String).
+	\item Allocating memory for an array of "pointers to structures".
+	\item Records are read from the file and are stored in the allocated structures and then pointers to these structures are linked to the array.
+	\item File is closed after storing the data with \textbf{fclose}
+\end{itemize}
+
+So after these processes we have \textit{an array of pointers to structures} containing the data of the files.
