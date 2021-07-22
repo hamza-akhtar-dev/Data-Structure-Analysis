@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2021.6.14)  22 JUL 2021 15:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2021.6.14)  22 JUL 2021 18:49
 entering extended mode
 **./uet_thesis.tex
 (uet_thesis.tex
@@ -504,7 +504,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks34
 \@floatcapt=\box55
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 20.
+Package hyperref Info: Option `colorlinks' set `true' on input line 19.
 
 ("C:\Users\hamza\AppData\Local\Programs\MiKTeX 2.9\tex/latex/titlesec\titlesec.
 sty"
@@ -527,24 +527,24 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 ) (uet_thesis.aux)
 \openout1 = `uet_thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -593,7 +593,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 34.
+Package hyperref Info: Link coloring ON on input line 33.
 
 ("C:\Users\hamza\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty"
@@ -609,9 +609,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count305
 )
-LaTeX Info: Redefining \ref on input line 34.
-LaTeX Info: Redefining \pageref on input line 34.
-LaTeX Info: Redefining \nameref on input line 34.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
  (uet_thesis.out) (uet_thesis.out)
 \@outlinefile=\write3
 \openout3 = `uet_thesis.out'.
@@ -620,10 +620,10 @@ LaTeX Info: Redefining \nameref on input line 34.
 -------------------------------------------
  Title Page
 -------------------------------------------
-<./Figures/uet_logo.pdf, id=47, 150.5625pt x 150.5625pt>
+<./Figures/uet_logo.pdf, id=71, 150.5625pt x 150.5625pt>
 File: ./Figures/uet_logo.pdf Graphic file (type pdf)
 <use ./Figures/uet_logo.pdf>
-Package pdftex.def Info: ./Figures/uet_logo.pdf  used on input line 52.
+Package pdftex.def Info: ./Figures/uet_logo.pdf  used on input line 51.
 (pdftex.def)             Requested size: 150.56212pt x 150.56212pt.
 [1
 
@@ -634,12 +634,12 @@ et_logo.pdf>]
 -------------------------------------------
  Certification
 -------------------------------------------
-LaTeX Font Info:    Trying to load font information for U+msa on input line 67.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
 
 ("C:\Users\hamza\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 67.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
 
 ("C:\Users\hamza\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -723,22 +723,22 @@ Chapter 3.
 -------------------------------------------
  3 Hash Table Implementation
 -------------------------------------------
-<./Figures/hash1000.jpg, id=154, 566.86781pt x 138.5175pt>
+<./Figures/hash1000.jpg, id=184, 566.86781pt x 138.5175pt>
 File: ./Figures/hash1000.jpg Graphic file (type jpg)
 <use ./Figures/hash1000.jpg>
 Package pdftex.def Info: ./Figures/hash1000.jpg  used on input line 8.
 (pdftex.def)             Requested size: 396.80476pt x 96.96158pt.
-<./Figures/hash10000.jpg, id=155, 576.65437pt x 143.03438pt>
+<./Figures/hash10000.jpg, id=185, 576.65437pt x 143.03438pt>
 File: ./Figures/hash10000.jpg Graphic file (type jpg)
 <use ./Figures/hash10000.jpg>
 Package pdftex.def Info: ./Figures/hash10000.jpg  used on input line 16.
 (pdftex.def)             Requested size: 403.6553pt x 100.12337pt.
-<./Figures/hash100000.jpg, id=156, 584.1825pt x 144.54pt>
+<./Figures/hash100000.jpg, id=186, 584.1825pt x 144.54pt>
 File: ./Figures/hash100000.jpg Graphic file (type jpg)
 <use ./Figures/hash100000.jpg>
 Package pdftex.def Info: ./Figures/hash100000.jpg  used on input line 24.
 (pdftex.def)             Requested size: 408.92496pt x 101.17729pt.
-<./Figures/hash1000000.jpg, id=157, 592.46344pt x 139.27031pt>
+<./Figures/hash1000000.jpg, id=187, 592.46344pt x 139.27031pt>
 File: ./Figures/hash1000000.jpg Graphic file (type jpg)
 <use ./Figures/hash1000000.jpg>
 Package pdftex.def Info: ./Figures/hash1000000.jpg  used on input line 32.
@@ -751,17 +751,17 @@ Chapter 4.
 -------------------------------------------
  4 Array Implementation
 -------------------------------------------
-<./Figures/Array1000.jpg, id=167, 545.03625pt x 153.57375pt>
+<./Figures/Array1000.jpg, id=197, 545.03625pt x 153.57375pt>
 File: ./Figures/Array1000.jpg Graphic file (type jpg)
 <use ./Figures/Array1000.jpg>
 Package pdftex.def Info: ./Figures/Array1000.jpg  used on input line 7.
 (pdftex.def)             Requested size: 381.52278pt x 107.50089pt.
-<./Figures/Array10000.jpg, id=168, 566.86781pt x 148.30406pt>
+<./Figures/Array10000.jpg, id=198, 566.86781pt x 148.30406pt>
 File: ./Figures/Array10000.jpg Graphic file (type jpg)
 <use ./Figures/Array10000.jpg>
 Package pdftex.def Info: ./Figures/Array10000.jpg  used on input line 15.
 (pdftex.def)             Requested size: 396.80476pt x 103.81212pt.
-<./Figures/Array100000.jpg, id=169, 560.0925pt x 152.06813pt>
+<./Figures/Array100000.jpg, id=199, 560.0925pt x 152.06813pt>
 File: ./Figures/Array100000.jpg Graphic file (type jpg)
 <use ./Figures/Array100000.jpg>
 Package pdftex.def Info: ./Figures/Array100000.jpg  used on input line 23.
@@ -769,7 +769,7 @@ Package pdftex.def Info: ./Figures/Array100000.jpg  used on input line 23.
 [5
 
  <./Figures/Array1000.jpg> <./Figures/Array10000.jpg>]
-<./Figures/Array1000000.jpg, id=175, 550.30594pt x 142.28156pt>
+<./Figures/Array1000000.jpg, id=205, 550.30594pt x 142.28156pt>
 File: ./Figures/Array1000000.jpg Graphic file (type jpg)
 <use ./Figures/Array1000000.jpg>
 Package pdftex.def Info: ./Figures/Array1000000.jpg  used on input line 31.
@@ -788,51 +788,51 @@ Chapter 6.
 -------------------------------------------
  6 Tree Implementation
 -------------------------------------------
-<./Figures/Tree1000.jpg, id=184, 595.47469pt x 155.07938pt>
-File: ./Figures/Tree1000.jpg Graphic file (type jpg)
-<use ./Figures/Tree1000.jpg>
-Package pdftex.def Info: ./Figures/Tree1000.jpg  used on input line 7.
-(pdftex.def)             Requested size: 416.82944pt x 108.55481pt.
-<./Figures/Tree10000.jpg, id=185, 597.73312pt x 160.34906pt>
-File: ./Figures/Tree10000.jpg Graphic file (type jpg)
-<use ./Figures/Tree10000.jpg>
-Package pdftex.def Info: ./Figures/Tree10000.jpg  used on input line 15.
-(pdftex.def)             Requested size: 418.41032pt x 112.24356pt.
-
-Overfull \hbox (0.93726pt too wide) in paragraph at lines 15--17
- [][] 
- []
-
-<./Figures/Tree100000.jpg, id=186, 612.78937pt x 156.585pt>
-File: ./Figures/Tree100000.jpg Graphic file (type jpg)
-<use ./Figures/Tree100000.jpg>
-Package pdftex.def Info: ./Figures/Tree100000.jpg  used on input line 23.
-(pdftex.def)             Requested size: 428.94963pt x 109.60873pt.
-
-Overfull \hbox (11.47656pt too wide) in paragraph at lines 23--25
- [][] 
- []
-
 [8
 
- <./Figures/Tree1000.jpg> <./Figures/Tree10000.jpg>]
-<./Figures/Tree1000000.jpg, id=191, 626.34pt x 166.37157pt>
-File: ./Figures/Tree1000000.jpg Graphic file (type jpg)
-<use ./Figures/Tree1000000.jpg>
-Package pdftex.def Info: ./Figures/Tree1000000.jpg  used on input line 31.
-(pdftex.def)             Requested size: 438.435pt x 116.45929pt.
+]
+<./Figures/Tree1000.jpg, id=218, 595.47469pt x 155.07938pt>
+File: ./Figures/Tree1000.jpg Graphic file (type jpg)
+<use ./Figures/Tree1000.jpg>
+Package pdftex.def Info: ./Figures/Tree1000.jpg  used on input line 35.
+(pdftex.def)             Requested size: 416.82944pt x 108.55481pt.
+<./Figures/Tree10000.jpg, id=219, 597.73312pt x 160.34906pt>
+File: ./Figures/Tree10000.jpg Graphic file (type jpg)
+<use ./Figures/Tree10000.jpg>
+Package pdftex.def Info: ./Figures/Tree10000.jpg  used on input line 43.
+(pdftex.def)             Requested size: 418.41032pt x 112.24356pt.
 
-Overfull \hbox (20.96193pt too wide) in paragraph at lines 31--33
+Overfull \hbox (0.93726pt too wide) in paragraph at lines 43--45
  [][] 
  []
 
-) (Chapters/Chapter7.tex [9 <./Figures/Tree100000.jpg> <./Figures/Tree1000000.j
-pg>]
+<./Figures/Tree100000.jpg, id=220, 612.78937pt x 156.585pt>
+File: ./Figures/Tree100000.jpg Graphic file (type jpg)
+<use ./Figures/Tree100000.jpg>
+Package pdftex.def Info: ./Figures/Tree100000.jpg  used on input line 51.
+(pdftex.def)             Requested size: 428.94963pt x 109.60873pt.
+
+Overfull \hbox (11.47656pt too wide) in paragraph at lines 51--53
+ [][] 
+ []
+
+<./Figures/Tree1000000.jpg, id=221, 626.34pt x 166.37157pt>
+File: ./Figures/Tree1000000.jpg Graphic file (type jpg)
+<use ./Figures/Tree1000000.jpg>
+Package pdftex.def Info: ./Figures/Tree1000000.jpg  used on input line 59.
+(pdftex.def)             Requested size: 438.435pt x 116.45929pt.
+
+Overfull \hbox (20.96193pt too wide) in paragraph at lines 59--61
+ [][] 
+ []
+
+) [9 <./Figures/Tree1000.jpg> <./Figures/Tree10000.jpg> <./Figures/Tree100000.j
+pg>] (Chapters/Chapter7.tex [10 <./Figures/Tree1000000.jpg>]
 Chapter 7.
 -------------------------------------------
  7 Results
 -------------------------------------------
-<./Figures/result.jpg, id=196, 896.59969pt x 432.86719pt>
+<./Figures/result.jpg, id=230, 896.59969pt x 432.86719pt>
 File: ./Figures/result.jpg Graphic file (type jpg)
 <use ./Figures/result.jpg>
 Package pdftex.def Info: ./Figures/result.jpg  used on input line 7.
@@ -842,33 +842,40 @@ Overfull \hbox (30.82568pt too wide) in paragraph at lines 7--9
  [][] 
  []
 
-) [10
+) [11
 
  <./Figures/result.jpg>]
 -------------------------------------------
  References
 -------------------------------------------
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 178.
-[11
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 177.
+[12
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 178.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 177.
  (uet_thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 178.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 178.
-Package rerunfilecheck Info: File `uet_thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 6044B0C168052814449AD5F37EBDBC15;1492.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 178.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 177.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 177.
+
+
+Package rerunfilecheck Warning: File `uet_thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `uet_thesis.out':
+(rerunfilecheck)             Before: 6ADDBD918336C485BF538D6D924E7CDB;2477
+(rerunfilecheck)             After:  30F35D7FD00240E6C23ED3F27B5F3401;2477.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 177.
  ) 
 Here is how much of TeX's memory you used:
- 13893 strings out of 480898
- 203764 string characters out of 2898309
- 448804 words of memory out of 3000000
- 29477 multiletter control sequences out of 15000+200000
- 541057 words of font info for 55 fonts, out of 3000000 for 9000
+ 13914 strings out of 480898
+ 204053 string characters out of 2898309
+ 448805 words of memory out of 3000000
+ 29491 multiletter control sequences out of 15000+200000
+ 541662 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,11n,49p,396b,385s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,11n,49p,533b,385s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/hamza/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm
 -super-ts1.enc}<C:/Users/hamza/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmbx10.pfb><C:/Users/hamza/AppData/Local/Programs/MiKTeX 2.9/f
@@ -881,9 +888,9 @@ m/cmr17.pfb><C:/Users/hamza/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmsl12.pfb><C:/Users/hamza/AppData/Local/Programs/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/hamza/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on uet_thesis.pdf (19 pages, 738136 bytes).
+Output written on uet_thesis.pdf (20 pages, 747775 bytes).
 PDF statistics:
- 253 PDF objects out of 1000 (max. 8388607)
- 60 named destinations out of 1000 (max. 500000)
- 159 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
+ 207 words of extra memory for PDF output out of 10000 (max. 10000000)
 
